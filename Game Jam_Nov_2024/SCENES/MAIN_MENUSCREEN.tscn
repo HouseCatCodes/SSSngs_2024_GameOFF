@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctx4qfhgl524n"]
+
+[ext_resource type="Script" path="res://SCRIPTS/mainmenu_assets.gd" id="1_8b0ip"]
+[ext_resource type="Texture2D" uid="uid://e874bxwg4msa" path="res://IMPORTS/GAME_DRAFT MENU SCREEN_2024.png" id="2_u1wpb"]
+
+[node name="MAIN_MENU" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MAINMENU_ASSETS" type="CanvasLayer" parent="."]
+script = ExtResource("1_8b0ip")
+
+[node name="GameDraftMenuScreen2024" type="Sprite2D" parent="MAINMENU_ASSETS"]
+position = Vector2(959, 541)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MAINMENU_ASSETS"]
+anchors_preset = -1
+anchor_right = 0.999
+anchor_bottom = 1.001
+offset_left = 1179.0
+offset_top = 727.0
+offset_right = -80.0801
+offset_bottom = -34.0801
+alignment = 1
+
+[node name="start" type="Button" parent="MAINMENU_ASSETS/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.429869, 0.0405589, 0.0422251, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 70
+text = "START
+"
+flat = true
+
+[node name="quit" type="Button" parent="MAINMENU_ASSETS/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.429869, 0.0405589, 0.0422251, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 70
+text = "QUIT
+"
+flat = true
+
+[node name="TITLE" type="Control" parent="MAINMENU_ASSETS"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1038.0
+offset_top = -284.0
+offset_right = -325.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.460767
+
+[node name="SHAUNS SHINANIGANS" type="Label" parent="MAINMENU_ASSETS/TITLE"]
+layout_mode = 2
+anchor_right = 2.693
+anchor_bottom = 2.584
+offset_left = -76.8251
+offset_top = 33.3153
+offset_right = -1104.93
+offset_bottom = -506.797
+theme_override_colors/font_color = Color(0.379712, 0.0312855, 0.0325784, 1)
+theme_override_colors/font_outline_color = Color(0.339883, 0.0744467, 0.0546708, 1)
+theme_override_constants/line_spacing = -38
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 130
+text = "SHAUN'S
+
+SHINANIGANS"
+horizontal_alignment = 1
+
+[node name="(placeholder) Remove later" type="Label" parent="MAINMENU_ASSETS/TITLE"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 289.992
+offset_top = 36.7254
+offset_right = -269.008
+offset_bottom = -353.275
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "(PLACEHOLDER)
+"
+horizontal_alignment = 1
+
+[node name="SHINY" type="Label" parent="MAINMENU_ASSETS/TITLE"]
+layout_mode = 2
+anchor_right = 2.693
+anchor_bottom = 2.584
+offset_left = 22.077
+offset_top = 132.733
+offset_right = -1211.03
+offset_bottom = -636.379
+theme_override_colors/font_color = Color(0.637572, 0.505834, 0.175709, 1)
+theme_override_colors/font_outline_color = Color(0.788288, 0.784566, 0.456208, 1)
+theme_override_constants/outline_size = 30
+theme_override_constants/shadow_outline_size = 0
+theme_override_font_sizes/font_size = 180
+text = "SHINY"
+horizontal_alignment = 1
+
+[node name="GameDraftMenuScreen2024" type="Sprite2D" parent="."]
+position = Vector2(962, 540)
+texture = ExtResource("2_u1wpb")
+
+[connection signal="pressed" from="MAINMENU_ASSETS/VBoxContainer/start" to="MAINMENU_ASSETS" method="_on_start_pressed"]
+[connection signal="pressed" from="MAINMENU_ASSETS/VBoxContainer/quit" to="MAINMENU_ASSETS" method="_on_quit_pressed"]

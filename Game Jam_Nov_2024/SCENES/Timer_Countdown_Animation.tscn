@@ -1,0 +1,69 @@
+[gd_scene load_steps=12 format=3 uid="uid://uok8y6untdva"]
+
+[ext_resource type="Texture2D" uid="uid://dmu6xa4m4gxek" path="res://IMPORTS/Timer/3.png" id="1_n4t2m"]
+[ext_resource type="Texture2D" uid="uid://dmnauj2pgwbko" path="res://IMPORTS/Timer/2.png" id="2_1nth3"]
+[ext_resource type="Texture2D" uid="uid://dk2hynnomlv82" path="res://IMPORTS/Timer/1.png" id="3_u0m6c"]
+[ext_resource type="Texture2D" uid="uid://blssy7k6eoynr" path="res://IMPORTS/Timer/RUN!!.png" id="4_ny37m"]
+
+[sub_resource type="Animation" id="Animation_puixm"]
+resource_name = "Count_Down_PreGame"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u268x"]
+_data = {
+"Count_Down_PreGame": SubResource("Animation_puixm")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkig5"]
+atlas = ExtResource("1_n4t2m")
+region = Rect2(0, 0, 2835, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_laaln"]
+atlas = ExtResource("2_1nth3")
+region = Rect2(0, 0, 2835, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dcw1"]
+atlas = ExtResource("3_u0m6c")
+region = Rect2(0, 0, 2835, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_em8yv"]
+atlas = ExtResource("4_ny37m")
+region = Rect2(0, 0, 2835, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vu0ki"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_fkig5")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_laaln")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_3dcw1")
+}, {
+"duration": 6.0,
+"texture": SubResource("AtlasTexture_em8yv")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Counter" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u268x")
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimationPlayer"]
+position = Vector2(976, 354)
+scale = Vector2(0.177, 0.177)
+sprite_frames = SubResource("SpriteFrames_vu0ki")
+autoplay = "default"
+frame_progress = 0.403505
+
+[node name="Timer" type="Timer" parent="AnimationPlayer"]

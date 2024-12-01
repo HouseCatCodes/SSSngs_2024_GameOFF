@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk8bav3wv8e4c"]
+
+[ext_resource type="Script" path="res://SCRIPTS/mob_movement.gd" id="1_0l283"]
+[ext_resource type="PackedScene" uid="uid://dsts14c0y6e0u" path="res://ASSETS/mob.tscn" id="2_ev32a"]
+
+[sub_resource type="Curve2D" id="Curve2D_asih0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1176, 528, 0, 0, 0, 0, 566, 524, 0, 0, 0, 0, 154, 522, 0, 0, 0, 0, 1510, 10, 0, 0, 0, 0, 344, 858, 0, 0, 0, 0, 924, 4, 0, 0, 0, 0, 1728, 860, 0, 0, 0, 0, 396, 12, 0, 0, 0, 0, 1304, 770, 0, 0, 0, 0, 1690, 194, 0, 0, 0, 0, 198, 248, 0, 0, 0, 0, 826, 826, 0, 0, 0, 0, 1174, 528, 0, 0, 0, 0, 1176, 528)
+}
+point_count = 14
+
+[node name="Mob_Path" type="Node2D"]
+script = ExtResource("1_0l283")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_asih0")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(1176, 528)
+rotation = -3.13504
+
+[node name="MOB" parent="Path2D/PathFollow2D" instance=ExtResource("2_ev32a")]
+z_index = 1
+position = Vector2(0.0065918, 1)
+rotation = 3.13504

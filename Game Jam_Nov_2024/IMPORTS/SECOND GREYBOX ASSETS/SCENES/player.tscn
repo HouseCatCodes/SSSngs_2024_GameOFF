@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://lpai8flbs1yi"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_crbts"]
+load_path = "res://.godot/imported/Player_TEMP.png-0d52e01c7490e2616e87beba7b935d16.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adugs"]
+atlas = SubResource("CompressedTexture2D_crbts")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4y7km"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adugs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_isvck"]
+size = Vector2(14, 15)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+z_index = 5
+position = Vector2(3, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_4y7km")
+frame_progress = 0.685755
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_isvck")

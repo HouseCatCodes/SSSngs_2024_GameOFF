@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ednhgfadqig"]
+
+[ext_resource type="Script" path="res://SCRIPTS/gameover_screen.gd" id="1_r4wpu"]
+[ext_resource type="Texture2D" uid="uid://cokiv3tptdffv" path="res://IMPORTS/GAME_DRAFT_ENDINGSCREEN_BAD_2024.png" id="2_pjdn8"]
+
+[node name="Game_Over" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameDraftEndingscreenBad2024" type="Sprite2D" parent="."]
+position = Vector2(961, 544)
+texture = ExtResource("2_pjdn8")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(550, -370)
+transform = Transform2D(1, 0, 0, 1, 550, -370)
+script = ExtResource("1_r4wpu")
+
+[node name="GAME OVER" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 707.0
+offset_top = 411.0
+offset_right = -634.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -40
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 125
+text = "BAD
+ENDING!"
+horizontal_alignment = 1
+
+[node name="Subtext" type="Label" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 721.0
+offset_top = 711.0
+offset_right = -641.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -15
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 45
+text = "Shaun failed to disarmed the spell...
+
+The Grand Wizzard is not impressed.
+Shaun will be going without dessert tonight...
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -238.0
+offset_top = 595.0
+offset_right = 326.0
+offset_bottom = 822.13
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="retry" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "RETRY"
+
+[node name="quit" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "QUIT
+"
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/retry" to="CanvasLayer" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/quit" to="CanvasLayer" method="_on_quit_pressed"]

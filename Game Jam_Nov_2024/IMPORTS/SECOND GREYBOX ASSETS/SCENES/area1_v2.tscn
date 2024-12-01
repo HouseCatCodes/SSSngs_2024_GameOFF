@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf1bevnv6cr6g"]
+
+[ext_resource type="PackedScene" uid="uid://dnu1276r6y1xy" path="res://SCENES/Templates/game_GreyBox_Template.tscn" id="1_pfkfq"]
+
+[node name="Game" instance=ExtResource("1_pfkfq")]

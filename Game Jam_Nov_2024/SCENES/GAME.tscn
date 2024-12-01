@@ -1,0 +1,161 @@
+[gd_scene load_steps=18 format=3 uid="uid://daru4i2xi0m36"]
+
+[ext_resource type="Texture2D" uid="uid://uw6nkp3mn3u5" path="res://IMPORTS/Current level project_V2_2024.png" id="1_4m71m"]
+[ext_resource type="PackedScene" uid="uid://drwecfopdj3vk" path="res://ASSETS/Player.tscn" id="2_xucfj"]
+[ext_resource type="PackedScene" uid="uid://bk8bav3wv8e4c" path="res://SCENES/mob_path.tscn" id="4_i835j"]
+[ext_resource type="PackedScene" uid="uid://d1f7i4v2mcoqm" path="res://ASSETS/killzone.tscn" id="4_o2h5g"]
+[ext_resource type="PackedScene" uid="uid://uok8y6untdva" path="res://SCENES/Timer_Countdown_Animation.tscn" id="5_81mw0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0ly2"]
+size = Vector2(1643, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pxe2t"]
+size = Vector2(17, 928)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cnbe"]
+size = Vector2(17, 928)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ex24j"]
+size = Vector2(1752, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvvcf"]
+size = Vector2(150, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55815"]
+size = Vector2(823, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsw8n"]
+size = Vector2(926, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2im3"]
+size = Vector2(215, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmofd"]
+size = Vector2(229, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpnlt"]
+size = Vector2(114.5, 313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elueo"]
+size = Vector2(263, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utxpb"]
+size = Vector2(736.575, 81.2646)
+
+[node name="TEMPLATE" type="Node2D"]
+
+[node name="CurrentLevelProjectV22024" type="Sprite2D" parent="."]
+position = Vector2(959.556, 365)
+texture = ExtResource("1_4m71m")
+
+[node name="BOUNDARIES" type="Node2D" parent="."]
+
+[node name="GROUND" type="StaticBody2D" parent="BOUNDARIES"]
+
+[node name="Ground Collision" type="CollisionShape2D" parent="BOUNDARIES/GROUND"]
+position = Vector2(1012.5, 908.5)
+shape = SubResource("RectangleShape2D_p0ly2")
+
+[node name="LEFT WALL" type="StaticBody2D" parent="BOUNDARIES"]
+
+[node name="Left wall collision" type="CollisionShape2D" parent="BOUNDARIES/LEFT WALL"]
+position = Vector2(89.5, 434)
+shape = SubResource("RectangleShape2D_pxe2t")
+
+[node name="RIGHT WALL" type="StaticBody2D" parent="BOUNDARIES"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BOUNDARIES/RIGHT WALL"]
+position = Vector2(1825.5, 434)
+shape = SubResource("RectangleShape2D_3cnbe")
+
+[node name="Ceiling" type="StaticBody2D" parent="BOUNDARIES"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BOUNDARIES/Ceiling"]
+position = Vector2(957, -39.5)
+shape = SubResource("RectangleShape2D_ex24j")
+
+[node name="LEVEL BLOCKING" type="Node2D" parent="."]
+
+[node name="Light_L" type="StaticBody2D" parent="LEVEL BLOCKING"]
+
+[node name="Light_L_Collision" type="CollisionShape2D" parent="LEVEL BLOCKING/Light_L"]
+position = Vector2(441, 259)
+shape = SubResource("RectangleShape2D_xvvcf")
+one_way_collision = true
+
+[node name="Light_R" type="StaticBody2D" parent="LEVEL BLOCKING"]
+
+[node name="Light_R_Collision" type="CollisionShape2D" parent="LEVEL BLOCKING/Light_R"]
+position = Vector2(1477, 257.5)
+shape = SubResource("RectangleShape2D_xvvcf")
+one_way_collision = true
+
+[node name="Desk_Top" type="StaticBody2D" parent="LEVEL BLOCKING"]
+
+[node name="Desk_Top_Collision" type="CollisionShape2D" parent="LEVEL BLOCKING/Desk_Top"]
+position = Vector2(958.5, 356)
+shape = SubResource("RectangleShape2D_55815")
+one_way_collision = true
+
+[node name="Desk_Middle" type="StaticBody2D" parent="LEVEL BLOCKING"]
+
+[node name="Desk_Middle_Collision" type="CollisionShape2D" parent="LEVEL BLOCKING/Desk_Middle"]
+position = Vector2(958, 600)
+shape = SubResource("RectangleShape2D_tsw8n")
+one_way_collision = true
+
+[node name="Desk_Drawer_L" type="StaticBody2D" parent="LEVEL BLOCKING"]
+
+[node name="Drawer_L_Collision" type="CollisionShape2D" parent="LEVEL BLOCKING/Desk_Drawer_L"]
+position = Vector2(597.5, 757)
+shape = SubResource("RectangleShape2D_f2im3")
+one_way_collision = true
+
+[node name="Drawer_R_Top" type="StaticBody2D" parent="LEVEL BLOCKING"]
+
+[node name="Drawer_R_Top_Collision" type="CollisionShape2D" parent="LEVEL BLOCKING/Drawer_R_Top"]
+position = Vector2(1333.5, 668.5)
+shape = SubResource("RectangleShape2D_vmofd")
+one_way_collision = true
+
+[node name="Drawer_R_Bottom" type="StaticBody2D" parent="LEVEL BLOCKING"]
+
+[node name="Draw_R_Bottom_Collision" type="CollisionShape2D" parent="LEVEL BLOCKING/Drawer_R_Bottom"]
+position = Vector2(1333.5, 786.5)
+shape = SubResource("RectangleShape2D_vmofd")
+one_way_collision = true
+
+[node name="Dragon_Ornament_Top" type="StaticBody2D" parent="LEVEL BLOCKING"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LEVEL BLOCKING/Dragon_Ornament_Top"]
+position = Vector2(1758.75, 126.5)
+shape = SubResource("RectangleShape2D_gpnlt")
+
+[node name="Drag_Orn_Floor_Collision" type="CollisionShape2D" parent="LEVEL BLOCKING/Dragon_Ornament_Top"]
+position = Vector2(1685.5, 293)
+shape = SubResource("RectangleShape2D_elueo")
+one_way_collision = true
+
+[node name="player" parent="." instance=ExtResource("2_xucfj")]
+position = Vector2(938.5, 539.5)
+collision_layer = 2
+
+[node name="Mob_Path" parent="." instance=ExtResource("4_i835j")]
+
+[node name="Killzone" parent="." instance=ExtResource("4_o2h5g")]
+position = Vector2(944, 394)
+rotation = 3.14159
+scale = Vector2(2.60123, -1.34711)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(-6.91916, 470.833)
+shape = SubResource("RectangleShape2D_utxpb")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(944, 394)
+scale = Vector2(-2.60123, 1.34711)
+zoom = Vector2(1.05, 1.05)
+
+[node name="Counter" parent="." instance=ExtResource("5_81mw0")]
+visible = false
+position = Vector2(6, 0)

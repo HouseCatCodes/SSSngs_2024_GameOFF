@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckje1ftwk0ijn"]
+
+[ext_resource type="Texture2D" uid="uid://6gb2smtbp08g" path="res://IMPORTS/ASSETS/MobMed_TEMP.png" id="1_5e4pr"]
+[ext_resource type="Script" path="res://SCRIPTS/mob_medium.gd" id="1_hte0j"]
+[ext_resource type="PackedScene" uid="uid://bsbr4mh0soefu" path="res://SCENES/MOBS/Killzones/2ndMobkillzone.tscn" id="3_t8o2d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42431"]
+atlas = ExtResource("1_5e4pr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8p342"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42431")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbf53"]
+size = Vector2(14, 15)
+
+[node name="Mob_Medium" type="Node2D"]
+script = ExtResource("1_hte0j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8p342")
+
+[node name="2ndMobKillzone" parent="AnimatedSprite2D" instance=ExtResource("3_t8o2d")]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/2ndMobKillzone"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_rbf53")
+
+[node name="RayCast_R" type="RayCast2D" parent="."]
+target_position = Vector2(14, 0)
+
+[node name="RayCast_L" type="RayCast2D" parent="."]
+target_position = Vector2(-14, 0)

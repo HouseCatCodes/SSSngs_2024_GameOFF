@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dj58b3rnpqxgf"]
+
+[ext_resource type="Texture2D" uid="uid://du31wb8xy7wni" path="res://IMPORTS/PLayer_BLOCK_NOV_04_2024.png" id="1_3tthe"]
+[ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_ccesu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0ly2"]
+size = Vector2(1952, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lavme"]
+atlas = ExtResource("1_3tthe")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojuvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lavme")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6idn6"]
+size = Vector2(96, 96)
+
+[node name="TEMPLATE" type="Node2D"]
+
+[node name="DEFAULT GROUND" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEFAULT GROUND"]
+position = Vector2(963, 936.5)
+shape = SubResource("RectangleShape2D_p0ly2")
+
+[node name="PLAYER" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ccesu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PLAYER"]
+position = Vector2(896, 872)
+sprite_frames = SubResource("SpriteFrames_ojuvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PLAYER"]
+position = Vector2(896, 872)
+shape = SubResource("RectangleShape2D_6idn6")

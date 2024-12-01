@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmxft0yagjm8w"]
+
+[ext_resource type="Script" path="res://SCRIPTS/player.gd" id="1_jcy8o"]
+[ext_resource type="Texture2D" uid="uid://13fygp5s0wfd" path="res://IMPORTS/MOB_BLOCK_NOV_04_2024.png" id="2_ixqoh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnits"]
+atlas = ExtResource("2_ixqoh")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_des77"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnits")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbxih"]
+size = Vector2(49, 96)
+
+[node name="MOB" type="Node2D"]
+
+[node name="MOB" type="CharacterBody2D" parent="."]
+script = ExtResource("1_jcy8o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MOB"]
+position = Vector2(896, 872)
+sprite_frames = SubResource("SpriteFrames_des77")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MOB"]
+position = Vector2(919.5, 872)
+shape = SubResource("RectangleShape2D_jbxih")

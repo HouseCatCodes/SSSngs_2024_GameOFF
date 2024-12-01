@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv3e6rpybwxws"]
+
+[ext_resource type="Texture2D" uid="uid://cro7fmghsmfe4" path="res://IMPORTS/ASSETS/TileMap_TEMP.png" id="1_ljhiy"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y55cu"]
+texture = ExtResource("1_ljhiy")
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+0:0/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+2:2/0 = 0
+2:1/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_a1clv"]
+sources/0 = SubResource("TileSetAtlasSource_y55cu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22m0n"]
+size = Vector2(32, 5)
+
+[node name="PLatform" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="TileMap" type="TileMap" parent="StaticBody2D"]
+position = Vector2(0, 1)
+tile_set = SubResource("TileSet_a1clv")
+format = 2
+layer_0/tile_data = PackedInt32Array(-65536, 131072, 0, -1, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_22m0n")
+one_way_collision = true
